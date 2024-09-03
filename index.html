@@ -62,9 +62,9 @@
         .heart {
             position: absolute;
             width: 20px;
-            height: 20px;
+            height: 18px;
             background-color: red;
-            transform: rotate(45deg);
+            transform: none;
             pointer-events: none;
             opacity: 0;
             animation: heartAnimation 1s linear forwards;
@@ -86,19 +86,19 @@
         }
 
         .heart::after {
+            top: -10px;
             left: 10px;
-            top: 0;
         }
 
         @keyframes heartAnimation {
             0% {
                 opacity: 1;
-                transform: scale(1) rotate(45deg);
+                transform: scale(1);
             }
 
             100% {
                 opacity: 0;
-                transform: scale(0.5) rotate(45deg);
+                transform: scale(0.5);
             }
         }
     </style>
