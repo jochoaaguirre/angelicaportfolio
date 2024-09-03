@@ -59,26 +59,46 @@
             margin-top: 10px;
         }
 
-        .sparkle {
+        .heart {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background: radial-gradient(circle, #F3D9FF 0%, #F3D9FF 100%);
-            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
             pointer-events: none;
             opacity: 0;
-            animation: sparkleAnimation 1s linear forwards;
+            animation: heartAnimation 1s linear forwards;
         }
 
-        @keyframes sparkleAnimation {
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes heartAnimation {
             0% {
                 opacity: 1;
-                transform: scale(1);
+                transform: scale(1) rotate(45deg);
             }
 
             100% {
                 opacity: 0;
-                transform: scale(0.5);
+                transform: scale(0.5) rotate(45deg);
             }
         }
     </style>
@@ -86,23 +106,30 @@
 
 <body>
     <script>
+        let lastHeartTime = 0;
+        const heartDelay = 75; // Tiempo en milisegundos entre la creación de corazones
+
         document.addEventListener('mousemove', function (e) {
-            createSparkle(e.clientX, e.clientY);
+            const currentTime = Date.now();
+            if (currentTime - lastHeartTime > heartDelay) {
+                createHeart(e.clientX, e.clientY);
+                lastHeartTime = currentTime;
+            }
         });
 
-        function createSparkle(x, y) {
-            const sparkle = document.createElement('div');
-            sparkle.classList.add('sparkle');
-            document.body.appendChild(sparkle);
+        function createHeart(x, y) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            document.body.appendChild(heart);
 
-            sparkle.style.left = `${x}px`;
-            sparkle.style.top = `${y}px`;
-            sparkle.style.transform = `translate(${getRandomOffset()}px, ${getRandomOffset()}px)`;
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+            heart.style.transform = `translate(${getRandomOffset()}px, ${getRandomOffset()}px)`;
 
-            // Elimina la chispa después de 1 segundo
+            // Elimina el corazón después de 1 segundo
             setTimeout(() => {
-                sparkle.remove();
-            }, 1000); // 1000 ms = 1 segundo
+                heart.remove();
+            }, 1000);
         }
 
         function getRandomOffset() {
