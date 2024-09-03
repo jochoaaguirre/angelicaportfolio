@@ -63,8 +63,7 @@
             position: absolute;
             width: 20px;
             height: 18px;
-            background-color: #830cc4;
-            transform: none;
+            background-color: transparent;
             pointer-events: none;
             opacity: 0;
             animation: heartAnimation 1s linear forwards;
@@ -76,18 +75,28 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background-color: #830cc4;
+            background-color: red;
             border-radius: 50%;
         }
 
         .heart::before {
-            top: -10px;
-            left: 0;
+            top: 0;
+            left: 10px;
         }
 
         .heart::after {
-            top: -10px;
-            left: 10px;
+            top: 0;
+            left: -10px;
+        }
+
+        .heart .bottom {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
+            top: 10px;
+            left: 0;
         }
 
         @keyframes heartAnimation {
