@@ -1,0 +1,73 @@
+/* Aplicar fuente globalmente al body en lugar del selector universal */
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0; /* Asegúrate de que no haya margen por defecto en el body */
+  padding: 0; /* Asegúrate de que no haya padding por defecto en el body */
+  box-sizing: border-box; /* Manejar tamaño de borde y padding */
+}
+
+/* Estilos específicos para el título */
+h1 {
+  text-align: center;
+  margin-top: 40px; /* Eliminar margen por defecto */
+}
+
+/* Estilos específicos para los contenedores de formulario */
+div {
+  margin: 10px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box; /* Manejar tamaño de borde y padding */
+}
+
+/* Estilos para los campos de entrada numéricos */
+input[type="number"] {
+  width: 100px;
+  box-sizing: border-box; /* Manejar tamaño de borde y padding */
+}
+
+/* Estilos para las etiquetas dentro de .valor-entrada */
+.valor-entrada label {
+  height: 21px;
+  width: 200px;
+  text-align: center;
+  margin-right: 15px;
+  box-sizing: border-box; /* Manejar tamaño de borde y padding */
+}
+
+/* Estilos para fieldset */
+fieldset {
+  max-width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Añadir borde si es necesario */
+  padding: 10px; /* Añadir padding interno */
+  box-sizing: border-box; /* Manejar tamaño de borde y padding */
+}
+
+/* Estilos para los divs dentro de fieldset */
+fieldset > div {
+  margin: 3px 0;
+  justify-content: left;
+}
+
+/* Estilos para el grupo de botones */
+.grupo-botones {
+  margin-top: 20px;
+}
+
+.grupo-botones button {
+  margin: 0 5px;
+  height: 27px;
+  box-sizing: border-box; /* Manejar tamaño de borde y padding */
+}
+
+/* Estilos para el área de resultado */
+.mostrarResultado {
+  text-align: center;
+}
